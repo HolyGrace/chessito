@@ -1,11 +1,12 @@
 from pygame import *
+from board import board
 import pygame
 import math
 
 pygame.init()
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 600
 
 COLOR_BOARD1 = (0, 0, 0)
 COLOR_BOARD2 = (255, 255, 255)
@@ -15,6 +16,12 @@ CELL_SPACE = int(SCREEN_WIDTH/8)
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+# Load chess pieces
+wp = pygame.image.load('src\pieces\white_pawn.png')
+
+# Resize pieces
+wp = pygame.transform.scale(wp , (CELL_SPACE, CELL_SPACE))
+           
 run = True
 while run:
 
@@ -30,7 +37,6 @@ while run:
 
 # Variable COLOR to identify when the board must show "COLOR_BOARD1" or "COLOR_BOARD2"
     COLOR=0
-
 # Creation of the table board
     # For clicle of the matrix
     for i in range(0, SCREEN_WIDTH, CELL_SPACE):
@@ -45,6 +51,7 @@ while run:
         COLOR += 1
 
     # Show the board
+    screen.blit(wp, (0, 0))
     pygame.display.flip()
 
 
