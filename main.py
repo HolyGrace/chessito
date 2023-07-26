@@ -8,8 +8,8 @@ pygame.init()
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 600
 
-COLOR_BOARD1 = (0, 0, 0)
-COLOR_BOARD2 = (255, 255, 255)
+COLOR_BOARD1 = (178,137,101)
+COLOR_BOARD2 = (241,216,183)
 
 CELL_SPACE = int(SCREEN_WIDTH/8)
 
@@ -17,10 +17,10 @@ CELL_SPACE = int(SCREEN_WIDTH/8)
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
 # Load chess pieces
-wp = pygame.image.load('src\pieces\white_pawn.png')
+#wp = pygame.image.load('src\pieces\white_pawn.png')
 
 # Resize pieces
-wp = pygame.transform.scale(wp , (CELL_SPACE, CELL_SPACE))
+#wp = pygame.transform.scale(wp , (CELL_SPACE, CELL_SPACE))
            
 run = True
 while run:
@@ -38,7 +38,8 @@ while run:
 
     display_board(screen, SCREEN_WIDTH, SCREEN_HEIGHT, CELL_SPACE, COLOR_BOARD1, COLOR_BOARD2)
     # Show the board
-    screen.blit(wp, (0, 0))
+    # screen.blit(wp, (0, 0))
+    display_pieces(screen, CELL_SPACE)
     pygame.display.flip()
 
 
