@@ -15,31 +15,28 @@ CELL_SPACE = int(SCREEN_WIDTH/8)
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-run= True
+run = True
 while run:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-        #Recolector of the mouse click information
+        # Recolector of the mouse click information
         if event.type == MOUSEBUTTONDOWN and event.button == 1:
             x, y = mouse.get_pos()
             print(x, y)
-
-            #SCEL_X, SCEL_Y =(math.trunc(x/CELL_SPACE), math.trunc(y/CELL_SPACE))
-            #print(SCEL_X, SCEL_Y)
-            SCEL_X, SCEL_Y =x/CELL_SPACE, y/CELL_SPACE
+            SCEL_X, SCEL_Y = math.trunc(x/CELL_SPACE), math.trunc(y/CELL_SPACE)
             print(SCEL_X, SCEL_Y)
 
-#variable COLOR to identify when the board must show "COLOR_BOARD1" or "COLOR_BOARD2"
+# Variable COLOR to identify when the board must show "COLOR_BOARD1" or "COLOR_BOARD2"
     COLOR=0
 
-##Creation of the table board
-    ##For clicle of the matrix
+# Creation of the table board
+    # For clicle of the matrix
     for i in range(0, SCREEN_WIDTH, CELL_SPACE):
         for j in range(0, SCREEN_HEIGHT, CELL_SPACE):
             if COLOR % 2 == 0 :
-                #Creation of the color cel 1
+                # Creation of the color cel 1
                 pygame.draw.rect(screen, COLOR_BOARD1, [i, j, CELL_SPACE, CELL_SPACE])
             else:
                 # Creation of the color cel 2
@@ -47,7 +44,7 @@ while run:
             COLOR += 1
         COLOR += 1
 
-    #Show the board
+    # Show the board
     pygame.display.flip()
 
 
